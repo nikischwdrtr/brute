@@ -235,6 +235,7 @@ androidgui4() {
                     adb shell input keyevent 3
                     if ! (( `expr $i + 1` % 5 )); then
                         adb shell input keyevent 66
+                        adb shell input keyevent 3
                         sleep 5
                         adb shell input keyevent 3
                         sleep 5

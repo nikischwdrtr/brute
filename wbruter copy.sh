@@ -213,7 +213,7 @@ android6() {
 
 
 androidgui4() {
-        screen="$(adb shell dumpsys activity|grep -i mCurrentFocus|awk 'NR==1{print $3}'|cut -d'}' -f1)"
+        screen="$(adb shell dumpsys nfc | grep 'mScreenState=')"
         case $screen in
             "mScreenState=OFF") echo -e "Preparing to attack."; 
                 echo -e "All Has Been Set" ;;

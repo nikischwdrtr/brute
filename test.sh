@@ -1,6 +1,4 @@
 #!/bin/bash
-for i in {0000..9999}; do
-  echo "hallo"
-  sleep 10
-  echo "dini"
-done
+for (( j=0; j<${#i}; j++ )); do
+                adb shell input keyevent $((`echo ${i:$j:1}`+7))
+            done

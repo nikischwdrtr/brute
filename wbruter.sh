@@ -231,6 +231,7 @@ androidgui4() {
                     for (( j=0; j<${#i}; j++ )); do
                         adb shell input keyevent $((`echo ${i:$j:1}`+7))
                     done
+                    adb shell input keyevent 3
                     adb shell input keyevent 66
                     adb shell input swipe 407 1211 378 85
                     clear() {

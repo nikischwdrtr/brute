@@ -236,23 +236,6 @@ androidgui4() {
                     clear() {
                         adb shell input keyevent KEYCODE_MOVE_END
                         adb shell input keyevent --longpress $(printf 'KEYCODE_DEL %.0s' {1..250}); } ;clear
-                    if ! (( `expr $i + 1` % 4 )); then
-                        adb shell input keyevent 66
-                        sleep 5
-                        adb shell input swipe 407 1211 378 85
-                        sleep 5
-                        adb shell input swipe 407 1211 378 85
-                        sleep 5 
-                        adb shell input swipe 407 1211 378 85
-                        sleep 5
-                        adb shell input swipe 407 1211 378 85
-                        sleep 5
-                        adb shell input swipe 407 1211 378 85
-                        sleep 5
-                        adb shell input keyevent 3
-                        adb shell input keyevent 82
-                        adb shell input swipe 407 1211 378 85
-                    fi
                 fi
             done
         done

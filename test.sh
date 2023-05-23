@@ -1,8 +1,6 @@
 #!/bin/bash
 for i in {0000..9999}; do
-  if ! (( `expr $i + 1` % 5 )); then
-    echo "hallo"
-  else
-    echo "dini"
-  fi
+  echo "hallo"
+  sleep 10
+  echo "dini"
 done

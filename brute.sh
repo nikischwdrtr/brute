@@ -15,7 +15,7 @@ while true
 do
     for i in {0000..9999}
     do
-        if [ [ $i != 1036 ] ]
+        if [[ $i != 1036 ]];
         then
             echo -e "\e[0;1mTrying pin:  $i\e[0m"
             while [ "$i" -le 4 ]
@@ -27,7 +27,7 @@ do
             adb shell input keyevent 66
             adb shell input keyevent 3
             echo "home button"
-            if ! ( ( `expr $i + 1` % 5 ) )
+            if ! (( `expr $i + 1` % 5 ));
             then
                 echo "now timeout"
                 adb shell input keyevent 66

@@ -3,13 +3,17 @@
 for i in {0000..9999}; do
     if [[ $i != 1036 ]]; then
         if [[ $i == 5 ]]; then
-            echo $i
+            echo "sleep+$i"
             sleep 2
-        elif [[ $i == 10 ]]; then
-            echo $i
+        elif [[ $i == 11 ]]; then
+            echo "sleep+$i"
             sleep 2
-        else
-            echo -e "hallo"
+        elif ( [[ $i != 5 ]] || [[ $i != 11 ]] ) && ( [[ $i -lt 11 ]] || [[ $i -eq 11 ]] ); then
+            echo "input+$i"
+            sleep 2
+        elif ( [[ $i != 5 ]] || [[ $i != 11 ]] ) && [[ $i -gt 11 ]]; then
+            echo "input+$i"
+            echo "sleep+$i"
             sleep 2
         fi
     fi

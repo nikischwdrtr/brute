@@ -17,6 +17,7 @@ adb shell input swipe 407 1211 378 85
 while true
 do
     for i in {0000..9999}; do
+        echo $i
         if [[ $i != 1036 ]]; then
             if [[ $i == 5 ]]; then
                 echo -e "(( >  timeout  < ))"

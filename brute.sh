@@ -6,14 +6,6 @@ case $screen in
         echo -e "All Has Been Set" ;;
     "mScreenState=ON_UNLOCKED") adb shell input keyevent 26
 esac
-
-(((_.-=-._.-=-._)))
- ))~~~~~~~~~~~~~(( 
-(( >Text Editor< ))
- )).............(( 
-(((`-._.-'`-._.-)))
-
-
 echo -e "(((_.-=-._.-=-._)))"
 echo -e " ))~~~~~~~~~~~~~(( "
 echo -e "(( > brute 117 < ))"

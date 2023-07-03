@@ -18,7 +18,7 @@ while true
 do
     for i in {0000..9999}; do
         if [[ $i != 1036 ]]; then
-            echo -e "(( > $i\e[0m < ))"
+            echo -e "(( >    \e[1m$i\e[0m   < ))"
             echo -e " ))~~~~~~~~~~~~~(( "
             for (( j=0; j<${#i}; j++ )); do
                 adb shell input keyevent $((`echo ${i:$j:1}`+7))

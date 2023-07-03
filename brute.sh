@@ -31,6 +31,5 @@ do
                 adb shell input keyevent 3
                 adb shell input swipe 407 1211 378 85
             fi
-        fi
     done
 done

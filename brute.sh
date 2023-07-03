@@ -27,7 +27,7 @@ do
             if ! (( `expr $i + 1` % 5 )); then
                 echo -e "(( >  timeout  < ))"
                 echo -e "(((<-._.-'<-._.-)))"
-                sleep 31
+                sleep 35
             fi
         fi
     done

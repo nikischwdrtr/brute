@@ -22,10 +22,22 @@ do
                 echo -e "(( >  timeout  < ))"
                 echo -e "(((<-._.-'<-._.-)))"
                 sleep 30
+                echo -e "(( >    \e[1m$i\e[0m   < ))"
+                echo -e " ))~~~~~~~~~~~~~(( "
+                for (( j=0; j<${#i}; j++ )); do
+                    adb shell input keyevent $((`echo ${i:$j:1}`+7))
+                done
+                adb shell input keyevent 66
             elif [[ $i == 10 ]]; then
                 echo -e "(( >  timeout  < ))"
                 echo -e "(((<-._.-'<-._.-)))"
                 sleep 30
+                echo -e "(( >    \e[1m$i\e[0m   < ))"
+                echo -e " ))~~~~~~~~~~~~~(( "
+                for (( j=0; j<${#i}; j++ )); do
+                    adb shell input keyevent $((`echo ${i:$j:1}`+7))
+                done
+                adb shell input keyevent 66
             elif [[ $i != 5 ]] || [[ $i != 5 ]]; then
                 echo -e "(( >    \e[1m$i\e[0m   < ))"
                 echo -e " ))~~~~~~~~~~~~~(( "

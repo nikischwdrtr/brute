@@ -14,6 +14,8 @@ echo -e "(((<-._.-'<-._.-)))"
 adb shell input keyevent 3
 adb shell input keyevent 82
 adb shell input swipe 407 1211 378 85
+COUNTER=0
+TIMEOUT=60
 while true
 do
     for i in {0000..9999}; do
@@ -56,9 +58,23 @@ do
                 done
                 adb shell input keyevent 66
             elif ( [[ $((10#$i)) != 5 ]] || [[ $((10#$i)) != 10 ]] ) && [[ $((10#$i)) -gt 10 ]] && ( [[ $((10#$i)) -gt 40 ]] || [[ $((10#$i)) -eq 40 ]] ); then
+                COUNTER=$((COUNTER+1))
+                if [[ $COUNTER -eq 9 ]]; then
+                    COUNTER=0
+                    TIMEOUT=$((TIMEOUT+TIMEOUT))
+                    echo -e "(( >  timeout  < ))"
+                    echo -e "(((<-._.-'<-._.-)))"
+                    sleep $TIME
+                    echo -e "(( >    \e[1m$i\e[0m   < ))"
+                    echo -e " ))~~~~~~~~~~~~~(( "
+                    for (( j=0; j<${#i}; j++ )); do
+                        adb shell input keyevent $((`echo ${i:$j:1}`+7))
+                    done
+                    adb shell input keyevent 66
+                fi
                 echo -e "(( >  timeout  < ))"
                 echo -e "(((<-._.-'<-._.-)))"
-                sleep 60
+                sleep $TIME
                 echo -e "(( >    \e[1m$i\e[0m   < ))"
                 echo -e " ))~~~~~~~~~~~~~(( "
                 for (( j=0; j<${#i}; j++ )); do

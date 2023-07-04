@@ -19,7 +19,7 @@ do
     for i in {0000..9999}; do
         echo $((10#$i))
         if [[ $i != 1036 ]]; then
-            if [[ $i == 5 ]]; then
+            if [[ $((10#$i)) == 5 ]]; then
                 echo -e "(( >  timeout  < ))"
                 echo -e "(((<-._.-'<-._.-)))"
                 sleep 30
@@ -29,7 +29,7 @@ do
                     adb shell input keyevent $((`echo ${i:$j:1}`+7))
                 done
                 adb shell input keyevent 66
-            elif [[ $i == 11 ]]; then
+            elif [[ $((10#$i)) == 11 ]]; then
                 echo -e "(( >  timeout  < ))"
                 echo -e "(((<-._.-'<-._.-)))"
                 sleep 30
@@ -39,14 +39,14 @@ do
                     adb shell input keyevent $((`echo ${i:$j:1}`+7))
                 done
                 adb shell input keyevent 66
-            elif ( [[ $i != 5 ]] || [[ $i != 11 ]] ) && ( [[ $i -lt 11 ]] || [[ $i -eq 11 ]] ); then
+            elif ( [[ $((10#$i)) != 5 ]] || [[ $((10#$i)) != 11 ]] ) && ( [[ $((10#$i)) -lt 11 ]] || [[ $((10#$i)) -eq 11 ]] ); then
                 echo -e "(( >    \e[1m$i\e[0m   < ))"
                 echo -e " ))~~~~~~~~~~~~~(( "
                 for (( j=0; j<${#i}; j++ )); do
                     adb shell input keyevent $((`echo ${i:$j:1}`+7))
                 done
                 adb shell input keyevent 66
-            elif ( [[ $i != 5 ]] || [[ $i != 11 ]] ) && [[ $i -gt 11 ]]; then
+            elif ( [[ $((10#$i)) != 5 ]] || [[ $((10#$i)) != 11 ]] ) && [[ $((10#$i)) -gt 11 ]]; then
                 echo -e "(( >  timeout  < ))"
                 echo -e "(((<-._.-'<-._.-)))"
                 sleep 30

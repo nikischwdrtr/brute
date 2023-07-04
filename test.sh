@@ -1,7 +1,7 @@
 #!/bin/bash
 
 for i in {0000..9999}; do
-    echo $i
+    echo $((10#$i + 1))
     sleep 0.5
     # if [[ $i != 1036 ]]; then
     #     if [[ $i == 5 ]]; then

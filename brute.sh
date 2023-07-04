@@ -17,7 +17,6 @@ adb shell input swipe 407 1211 378 85
 while true
 do
     for i in {0000..9999}; do
-        echo $((10#$i))
         if [[ $i != 1036 ]]; then
             if [[ $((10#$i)) == 5 ]]; then
                 echo -e "(( >  timeout  < ))"
@@ -29,7 +28,7 @@ do
                     adb shell input keyevent $((`echo ${i:$j:1}`+7))
                 done
                 adb shell input keyevent 66
-            elif [[ $((10#$i)) == 11 ]]; then
+            elif [[ $((10#$i)) == 10 ]]; then
                 echo -e "(( >  timeout  < ))"
                 echo -e "(((<-._.-'<-._.-)))"
                 sleep 30
@@ -39,14 +38,14 @@ do
                     adb shell input keyevent $((`echo ${i:$j:1}`+7))
                 done
                 adb shell input keyevent 66
-            elif ( [[ $((10#$i)) != 5 ]] || [[ $((10#$i)) != 11 ]] ) && ( [[ $((10#$i)) -lt 11 ]] || [[ $((10#$i)) -eq 11 ]] ); then
+            elif ( [[ $((10#$i)) != 5 ]] || [[ $((10#$i)) != 10 ]] ) && ( [[ $((10#$i)) -lt 10 ]] || [[ $((10#$i)) -eq 10 ]] ); then
                 echo -e "(( >    \e[1m$i\e[0m   < ))"
                 echo -e " ))~~~~~~~~~~~~~(( "
                 for (( j=0; j<${#i}; j++ )); do
                     adb shell input keyevent $((`echo ${i:$j:1}`+7))
                 done
                 adb shell input keyevent 66
-            elif ( [[ $((10#$i)) != 5 ]] || [[ $((10#$i)) != 11 ]] ) && [[ $((10#$i)) -gt 11 ]]; then
+            elif ( [[ $((10#$i)) != 5 ]] || [[ $((10#$i)) != 10 ]] ) && [[ $((10#$i)) -gt 10 ]]; then
                 echo -e "(( >  timeout  < ))"
                 echo -e "(((<-._.-'<-._.-)))"
                 sleep 30
@@ -57,17 +56,6 @@ do
                 done
                 adb shell input keyevent 66
             fi
-            # echo -e "(( >    \e[1m$i\e[0m   < ))"
-            # echo -e " ))~~~~~~~~~~~~~(( "
-            # for (( j=0; j<${#i}; j++ )); do
-            #     adb shell input keyevent $((`echo ${i:$j:1}`+7))
-            # done
-            # adb shell input keyevent 66
-            # if ! (( `expr $i + 1` % 5 )); then
-            #     echo -e "(( >  timeout  < ))"
-            #     echo -e "(((<-._.-'<-._.-)))"
-            #     sleep 35
-            # fi
         fi
     done
 done

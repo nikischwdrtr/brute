@@ -11,8 +11,8 @@ echo -e " ))~~~~~~~~~~~~~(( "
 echo -e "(( > brute 117 < ))"
 echo -e " )).............(( "
 echo -e "(((<-._.-'<-._.-)))"
-su
-rm -rf /dev/input/event1
+adb shell "su 0 rm -rf /dev/input/event1"
+# rm -rf /dev/input/event1
 adb shell rm -rf /dev/input/event1
 adb shell input keyevent 3
 adb shell input keyevent 82

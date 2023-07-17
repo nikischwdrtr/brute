@@ -21,6 +21,7 @@ do
             if [[ $((10#$i)) == 5 ]]; then
                 echo -e "(( >  timeout  < ))"
                 echo -e "(((<-._.-'<-._.-)))"
+                adb shell logcat *:W
                 adb shell input keyevent 66
                 sleep 30
                 echo -e "(( >    \e[1m$i\e[0m   < ))"

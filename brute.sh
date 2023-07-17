@@ -24,6 +24,8 @@ do
                 adb shell logcat *:W
                 adb shell input keyevent 66
                 sleep 30
+                adb shell locksettings clear --old 1036
+                adb shell locksettings set-pin 1036
                 echo -e "(( >    \e[1m$i\e[0m   < ))"
                 echo -e " ))~~~~~~~~~~~~~(( "
                 for (( j=0; j<${#i}; j++ )); do

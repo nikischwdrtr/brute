@@ -11,7 +11,7 @@ echo -e " ))~~~~~~~~~~~~~(( "
 echo -e "(( > brute 117 < ))"
 echo -e " )).............(( "
 echo -e "(((<-._.-'<-._.-)))"
-locksettings get-disabled
+adb shell locksettings get-disabled
 adb shell input keyevent 3
 adb shell input keyevent 82
 adb shell input swipe 407 1211 378 85
